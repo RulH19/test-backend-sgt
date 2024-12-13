@@ -30,9 +30,9 @@
     "start": "nodemon src/app.js"
   },`
 
-## Dokumentasi API
+# Dokumentasi API
 
-#### Get all books
+## Get all books
 
 ```http
   GET http://localhost:4000/api/books
@@ -40,7 +40,7 @@
 
 ![Get All Books](https://github.com/RulH19/test-backend-sgt/blob/main/image_asset_dokumentasi/Get-All-Book.png?raw=true)
 
-#### Get Book
+## Get Book
 
 ```http
   GET http://localhost:4000/api/books?title=xxx&author=xxx
@@ -54,7 +54,7 @@
 ![Get Book](https://github.com/RulH19/test-backend-sgt/blob/main/image_asset_dokumentasi/Get-Author-Book.png?raw=true)
 ![Get Book](https://github.com/RulH19/test-backend-sgt/blob/main/image_asset_dokumentasi/Get-Title-Book.png?raw=true)
 
-#### POST Member
+## POST Member
 
 ```http
   POST http://localhost:4000/api/members
@@ -101,7 +101,7 @@
 
 ![Mengembalikan Buku](https://github.com/RulH19/test-backend-sgt/blob/main/image_asset_dokumentasi/Melakukan-Return.png?raw=true)
 
-### Perubahan stok dan status
+#### Perubahan stok dan status
 
 - Sebelum di return
   ![Sebelum di return ](https://github.com/RulH19/test-backend-sgt/blob/main/image_asset_dokumentasi/Sebelum-Return-Status.png?raw=true)
@@ -109,3 +109,14 @@
 - Sesudah di Return
   ![Sesudah di Return](https://github.com/RulH19/test-backend-sgt/blob/main/image_asset_dokumentasi/Setelah-Return-Status.png?raw=true)
   ![Sesudah di Return](https://github.com/RulH19/test-backend-sgt/blob/main/image_asset_dokumentasi/Setelah-Return-Stok.png?raw=true)
+
+## Get History Member
+```http
+  GET http://localhost:4000/api/members/:id/borrowings
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+|  `status`  | `String` | `BORROWED / RETURNED      |
+
+![Get Book](https://github.com/RulH19/test-backend-sgt/blob/main/image_asset_dokumentasi/All-Status.png?raw=true)
+![Get Book](https://github.com/RulH19/test-backend-sgt/blob/main/image_asset_dokumentasi/Status-Returned.png?raw=true)
