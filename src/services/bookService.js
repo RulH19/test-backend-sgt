@@ -19,7 +19,18 @@ const getAllBooks = async (title, author, page = 1, limit = 10) => {
     pagination: { total, page, limit, totalPages: Math.ceil(total / limit) },
   };
 };
+const getBookById = async (bookId) => {
+  const SQLQuery = "SELECT * FROM books WHERE id = ?";
+  const [rows] = await dbPool.execute(SQLQuery, [bookId]);
+  return rows[0];
+};
 
+const updateBookStock = async (bookId, newStock) => {
+  const SQLQuery = "UPDATE books SET stock = ? WHERE id = ?";
+  return dbPool.execute(SQLQuery, [newStock, bookId]);
+};
 module.exports = {
   getAllBooks,
+  getBookById,
+  updateBookStock,
 };
