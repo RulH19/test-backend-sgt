@@ -10,7 +10,19 @@ const createNewMember = (body) => {
     body.address,
   ]);
 };
-
+const getMemberBorrowings = async (memberId, status, limit = 10, page = 1) => {
+  let SQLQuery = ` SELECT * FROM borrowings WHERE member_id = ? `;
+  if (status) {
+    SQLQuery += ` AND status LIKE '%${status}%'`;
+  }
+  SQLQuery += ` LIMIT ${limit}`;
+  const [rows] = await dbPool.execute(SQLQuery, [memberId]);
+  return {
+    data: rows,
+    pagination: { status, page, limit },
+  };
+};
 module.exports = {
   createNewMember,
+  getMemberBorrowings,
 };
